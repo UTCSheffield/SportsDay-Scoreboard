@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activity: MyString
+  year: MyString
+  gender: MyString
+  sharman: 1
+  winston: 1
+  ennis: 1
+  turing: 1
+
+two:
+  activity: MyString
+  year: MyString
+  gender: MyString
+  sharman: 1
+  winston: 1
+  ennis: 1
+  turing: 1

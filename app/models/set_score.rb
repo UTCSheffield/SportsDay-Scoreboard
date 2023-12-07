@@ -1,0 +1,2 @@
+class SetScore < ApplicationRecord
+end
