@@ -1,24 +1,16 @@
-# README
+#  Sports Day Scoreboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment
+| Package | Version |
+| --- | --- |
+| ruby | 3.2.2 |
+| Postgres | Any |
 
-Things you may want to cover:
+## Development Quickstart
+1. Copy `.env.development.example` to `.env`
+2. Once you start the docker container (`docker compose up`)
+3. Setup the database (`docker compose exec web rails db:setup`)
+4. Success!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Deployment instructions
+TBD
