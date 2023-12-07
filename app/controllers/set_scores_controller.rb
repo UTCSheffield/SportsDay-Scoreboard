@@ -1,3 +1,4 @@
+require 'json'
 class SetScoresController < ApplicationController
     skip_before_action :verify_authenticity_token if Rails.env.development?
     def index
@@ -11,6 +12,7 @@ class SetScoresController < ApplicationController
         event = Event.find_by(id: params[:id])
         event.update(sharman: params[:sharman], winston: params[:winston], ennis: params[:ennis], turing: params[:turing])
         event.save
+        ActionCable.server.broadcast("update_scores_channel", event.to_json)
         redirect_to "/set_score"
     end
 end
