@@ -114,9 +114,6 @@ GEM
     irb (1.10.1)
       rdoc
       reline (>= 0.3.8)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -218,6 +215,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -240,10 +239,9 @@ DEPENDENCIES
   capybara
   debug
   importmap-rails
-  jbuilder
-  pg (~> 1.1)
-  puma (>= 5.0)
-  rails (~> 7.1.2)
+  pg
+  puma
+  rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
