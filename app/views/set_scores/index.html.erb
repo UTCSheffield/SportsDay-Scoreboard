@@ -7,10 +7,10 @@
     <th>Activity</th>
     <th>Year</th>
     <th>Gender</th>
-    <th>Sharman</th>
-    <th>Winston</th>
-    <th>Ennis</th>
     <th>Turing</th>
+    <th>Winston</th>
+    <th>Sharman</th>
+    <th>Ennis</th>
     <th>Change Score</th>
   </tr>
   <% @events.each do |event| %>
@@ -19,12 +19,24 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td><%= form.text_field :sharman, value: event.sharman %></td>
-        <td><%= form.text_field :winston, value: event.winston %></td>
-        <td><%= form.text_field :ennis, value: event.ennis %></td>
         <td><%= form.text_field :turing, value: event.turing %></td>
+        <td><%= form.text_field :winston, value: event.winston %></td>
+        <td><%= form.text_field :sharman, value: event.sharman %></td>
+        <td><%= form.text_field :ennis, value: event.ennis %></td>
         <td><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>
   <% end %>
 </table>    
+
+
+<a href="/set_scores?activity=60m">60m</a> 
+<a href="/set_scores?activity=200m">200m</a> 
+<a href="/set_scores?activity=400m">400m</a> 
+<a href="/set_scores?activity=800m">800m</a> 
+<a href="/set_scores?activity=High Jump">High Jump</a> 
+<a href="/set_scores?activity=Javellin">Javellin</a> 
+<a href="/set_scores?activity=Long Jump">Long Jump</a> 
+<a href="/set_scores?activity=Relay">Relay</a> 
+<a href="/set_scores?activity=Shotput">Shotput</a> 
+<a href="/set_scores?activity=Triple Jump">Triple Jump</a> 

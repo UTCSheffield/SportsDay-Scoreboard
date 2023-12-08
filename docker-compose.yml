@@ -5,6 +5,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: "ThisISAPASSWORD"
+  redis:
+    image: redis
   web:
     build: ./
     volumes:
@@ -14,6 +16,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - redis
     env_file:
       - .env
 volumes:

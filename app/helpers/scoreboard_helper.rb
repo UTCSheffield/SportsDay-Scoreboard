@@ -1,6 +1,6 @@
 module ScoreboardHelper
   def render_scoreboard_rows(year)
-    events = Event.where(year: year)
+    events = Event.all.where(year: year)
     header = content_tag(:th, "Year #{year}")
     turing = content_tag(:td, "#{events.sum(:turing)}", id: "#{year}-turing")
     winston = content_tag(:td, "#{events.sum(:winston)}", id: "#{year}-winston")

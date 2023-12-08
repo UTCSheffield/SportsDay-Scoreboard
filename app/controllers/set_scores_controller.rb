@@ -1,7 +1,9 @@
 class SetScoresController < ApplicationController
   def index
-    if (params[:year].nil?)
+    if (params[:year].nil? and params[:activity].nil?)
       @events = Event.order("id ASC")
+    elsif (params[:year].nil? )
+      @events = Event.where(activity: params[:activity]).order("id ASC")
     else
       @events = Event.where(year: params[:year]).order("id ASC")
     end
@@ -10,7 +12,12 @@ class SetScoresController < ApplicationController
   def update
     event = Event.find_by(id: params[:id])
     event.update(sharman: params[:sharman], winston: params[:winston], ennis: params[:ennis], turing: params[:turing])
-    ActionCable.server.broadcast("update_scores_channel", event.to_json)
-    redirect_to "/set_score"
+    ActionCable.server.broadcast("update_scores_channel", {
+      year: event.year,
+      sharman: Event.where(year: event.year).sum(:sharman),
+      turing: Event.where(year: event.year).sum(:turing),
+      winston: Event.where(year: event.year).sum(:winston),
+      ennis: Event.where(year: event.year).sum(:ennis)
+    })
   end
 end

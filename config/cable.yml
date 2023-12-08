@@ -1,10 +1,10 @@
 development:
-  adapter: async
-
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") %>/0
 test:
   adapter: test
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: <%= ENV.fetch("REDIS_URL") %>/0
   channel_prefix: sutc_sports_day_scoreboard_production
