@@ -4,13 +4,13 @@ consumer.subscriptions.create("UpdateScoresChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
     console.log("Connected")
-    this.startUpdating();
+    //this.startUpdating();
   },
 
   disconnected() {
     // Called when the subscription has been terminated by the server
     console.log("Disconnected")
-    this.stopUpdating();
+    //this.stopUpdating();
   },
 
   received(data) {
