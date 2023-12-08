@@ -7,10 +7,10 @@
     <th>Activity</th>
     <th>Year</th>
     <th>Gender</th>
-    <th>Sharman</th>
-    <th>Winston</th>
-    <th>Ennis</th>
     <th>Turing</th>
+    <th>Winston</th>
+    <th>Sharman</th>
+    <th>Ennis</th>
     <th>Change Score</th>
   </tr>
   <% @events.each do |event| %>
@@ -19,10 +19,10 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td><%= form.text_field :sharman, value: event.sharman %></td>
-        <td><%= form.text_field :winston, value: event.winston %></td>
-        <td><%= form.text_field :ennis, value: event.ennis %></td>
         <td><%= form.text_field :turing, value: event.turing %></td>
+        <td><%= form.text_field :winston, value: event.winston %></td>
+        <td><%= form.text_field :sharman, value: event.sharman %></td>
+        <td><%= form.text_field :ennis, value: event.ennis %></td>
         <td><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>
