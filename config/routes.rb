@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  scope "auth" do
+    get "/" => "auth#index"
+    get "callback" => "auth#callback"
+  end
   resources :set_scores, only: [:index, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
