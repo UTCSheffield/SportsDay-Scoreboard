@@ -29,5 +29,10 @@ RUN bundle install
 # The first one will select ALL The files of the current directory, 
 # The second dot will copy it to the WORKDIR!
 COPY . .
+RUN --mount=type=secret,id=DB_URL --mount=type=secret,id=REDIS_URL --mount=type=secret,id=REDIS_PORT \
+    DB_URL="$(cat /run/secrets/DB_URL)" \
+    REDIS_URL="$(cat /run/secrets/REDIS_URL)" \
+    REDIS_PORT="$(cat /run/secrets/REDIS_PORT)" \
+    bin/rails assets:precompile
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+CMD ["./bin/rails", "server", "--binding=0.0.0.0"]
