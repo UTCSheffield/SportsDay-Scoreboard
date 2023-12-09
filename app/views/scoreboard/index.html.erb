@@ -1,3 +1,7 @@
+<% Event.all.each do |event| %>
+  <%= turbo_stream_from event %>
+<% end %>
+
 <table border=1>
   <tr>
     <th></th>

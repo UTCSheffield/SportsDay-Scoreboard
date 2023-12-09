@@ -14,6 +14,8 @@
     <th>Change Score</th>
   </tr>
   <% @events.each do |event| %>
+    <%= turbo_stream_from event %>
+
     <tr>
       <%= form_with url: set_score_path(id: event.id), method: :put do |form| %>
         <td><%= event.activity %></td>
