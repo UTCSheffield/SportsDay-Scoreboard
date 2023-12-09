@@ -36,4 +36,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Auth
+gem "jwt"
+gem "httparty"
+
 gem "dockerfile-rails", ">= 1.5", :group => :development
