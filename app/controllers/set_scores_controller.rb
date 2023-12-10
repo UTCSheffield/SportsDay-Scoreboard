@@ -9,6 +9,7 @@ class SetScoresController < ApplicationController
     else
       @events = Event.where(year: params[:year]).order("id ASC")
     end
+    @activities = Event.where(year: 9, gender: "Boys").order("id ASC") # This could use any year and gender, I just went for Y9 & boy because it's the fewest characters
   end
 
   def update
