@@ -8,7 +8,7 @@ class AuthController < ApplicationController
     redirect_to "#{API_SERVER}/connect/microsoft?callback=#{callbackURL}", allow_other_host: true
   def callback
     session[:grant] = {
-      response: params,
+      #      access_token: params[:access_token],
       user: false
     }
 
@@ -18,26 +18,27 @@ class AuthController < ApplicationController
 
       if seconds_since_epoch >= id_claims['nbf'] && seconds_since_epoch <= id_claims['exp']
         access_claims = JWT.decode(params[:access_token], nil, false).first
-
+        puts "PASSED ACCESS ClAIMS STEP"
         if seconds_since_epoch >= access_claims['nbf'] && seconds_since_epoch <= access_claims['exp']
           response = HTTParty.post("#{API_SERVER}/sportsday/roles/", 
-            body: { access_token: session[:grant][:response][:access_token] })
+            body: { access_token: params[:access_token] })
 
           session[:grant][:user] = {
-            name: access_claims['name'],
-            family_name: access_claims['given_name'],
-            given_name: access_claims['given_name'],
+            #name: access_claims['name'],
+            #            family_name: access_claims['given_name'],
+            #            given_name: access_claims['given_name'],
             email: access_claims['upn'],
             roles: response.parsed_response
           }
-
-          redirect_to '/sportsday'
+          puts "HIT REDIRECT"
+          puts session[:grant][:user][:roles]
+          redirect_to root_path
         end
+        end
+      rescue => e
+        session[:grant][:user] = false
+         render :file => "#{Rails.root}/public/401.html",  :status => 401
       end
-    rescue => e
-      session[:grant][:user] = false
-      render :file => "#{Rails.root}/public/401.html",  :status => 401
-    end
   end
 end
 end

@@ -1,4 +1,6 @@
 class SetScoresController < ApplicationController
+  include UserRoles
+  before_action :authorize_scorer
   def index
     if (params[:year].nil? and params[:activity].nil?)
       @events = Event.order("id ASC")
