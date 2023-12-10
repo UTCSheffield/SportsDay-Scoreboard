@@ -10,11 +10,6 @@ gem "rails"
 gem "pg"
 gem "puma"
 
-# Redis
-gem 'redis'
-gem 'redis-namespace'
-gem 'redis-rails'
-
 # Assets
 gem "sprockets-rails"
 gem "importmap-rails"

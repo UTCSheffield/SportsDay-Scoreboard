@@ -1,10 +1,8 @@
 development:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") %>/0
+  adapter: postgresql
+
 test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") %>/0
-  channel_prefix: sutc_sports_day_scoreboard_production
+  adapter: postgresql
