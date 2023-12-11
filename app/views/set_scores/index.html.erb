@@ -21,10 +21,10 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td><%= form.text_field :turing, value: event.turing %></td>
-        <td><%= form.text_field :winston, value: event.winston %></td>
-        <td><%= form.text_field :sharman, value: event.sharman %></td>
-        <td><%= form.text_field :ennis, value: event.ennis %></td>
+        <td><%= render_dropdowns(event.activity, "turing") %></td>
+        <td><%= render_dropdowns(event.activity, "winston") %></td>
+        <td><%= render_dropdowns(event.activity, "sharman") %></td>
+        <td><%= render_dropdowns(event.activity, "ennis") %></td>
         <td><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>
