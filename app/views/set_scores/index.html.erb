@@ -33,5 +33,5 @@
 
 
 <% @activities.each do |activity| %>
-  <a href=/set_scores?activity=<%= activity.activity %>"><%= activity.activity %></a>
+  <%= link_to activity.activity, set_scores_path(:activity => activity.activity) %>
 <% end %>

@@ -29,10 +29,10 @@ module UserRoles
   private
 
   def user_roles_present?
-    session[:grant]["user"].present? && session[:grant]["user"]["roles"].present?
+    session[:grant].present? && session[:grant]["user"] != false && session[:grant]["user"]["roles"].present?
   end
 
   def render_unauthorized
-    render plain: 'Unauthorized', status: :unauthorized
+    redirect_to "/auth?callback=#{request.fullpath}"
   end
 end

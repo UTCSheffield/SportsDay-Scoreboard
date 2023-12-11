@@ -4,14 +4,17 @@ class AuthController < ApplicationController
 
   API_SERVER = 'https://utc-olp-api-proxy.glitch.me'
   def index
+    session[:callbackURL] = nil
     callbackURL = if Rails.env.development? then "http://localhost:3000/auth/callback" else "https://sutc-sportsday-scoreboard.fly.dev/auth/callback" end
     redirect_to "#{API_SERVER}/connect/microsoft?callback=#{callbackURL}", allow_other_host: true
+    if params[:callback].present?
+      session[:callbackURL] = params[:callback]
+    end
   def callback
     session[:grant] = {
       #      access_token: params[:access_token],
-      user: false
+      user: false,
     }
-
     begin
       seconds_since_epoch = Time.now.to_i
       id_claims = JWT.decode(params[:id_token], nil, false).first
@@ -32,7 +35,11 @@ class AuthController < ApplicationController
           }
           puts "HIT REDIRECT"
           puts session[:grant][:user][:roles]
-          redirect_to root_path
+          if session[:callbackURL].present?
+            redirect_to session[:callbackURL]
+          else
+            redirect_to root_path
+          end
         end
         end
       rescue => e
@@ -40,5 +47,11 @@ class AuthController < ApplicationController
          render :file => "#{Rails.root}/public/401.html",  :status => 401
       end
   end
-end
+  end
+  def logout
+    session[:grant] = {
+      user: false
+    }
+    redirect_to root_path
+  end
 end
