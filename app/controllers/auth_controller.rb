@@ -5,7 +5,7 @@ class AuthController < ApplicationController
   API_SERVER = 'https://utc-olp-api-proxy.glitch.me'
   def index
     session[:callbackURL] = nil
-    callbackURL = if Rails.env.development? then "http://localhost:3000/auth/callback" else "https://sutc-sportsday-scoreboard.fly.dev/auth/callback" end
+    callbackURL = "#{root_url}/auth/callback"
     redirect_to "#{API_SERVER}/connect/microsoft?callback=#{callbackURL}", allow_other_host: true
     if params[:callback].present?
       session[:callbackURL] = params[:callback]

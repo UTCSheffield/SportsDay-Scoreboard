@@ -1,3 +1,4 @@
+ARG DB_URL
 FROM ruby:3.2.2
 # The qq is for silent output in the console
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs vim postgresql-client
@@ -29,8 +30,7 @@ RUN bundle install
 # The first one will select ALL The files of the current directory, 
 # The second dot will copy it to the WORKDIR!
 COPY . .
-RUN --mount=type=secret,id=DB_URL \
-    DB_URL="$(cat /run/secrets/DB_URL)" \
-    bin/rails assets:precompile
+ENV DB_URL $DB_URL
+RUN bin/rails assets:precompile
 EXPOSE 3000
 CMD ["./bin/rails", "server", "--binding=0.0.0.0"]
