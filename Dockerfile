@@ -1,5 +1,6 @@
 ARG DB_URL
 ARG RAILS_MASTER_KEY
+ARG RAILS_ENV
 FROM ruby:3.2.2
 # The qq is for silent output in the console
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs vim postgresql-client nano
@@ -32,6 +33,7 @@ RUN bundle install
 # The second dot will copy it to the WORKDIR!
 COPY . .
 ENV DB_URL $DB_URL
+ENV RAILS_ENV $RAILS_ENV
 ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
 RUN bin/rails assets:precompile
 EXPOSE 3000
