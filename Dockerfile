@@ -1,7 +1,8 @@
 ARG DB_URL
+ARG RAILS_MASTER_KEY
 FROM ruby:3.2.2
 # The qq is for silent output in the console
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs vim postgresql-client
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs vim postgresql-client nano
 
 # Sets the path where the app is going to be installed
 ENV RAILS_ROOT /var/www/
@@ -32,6 +33,7 @@ RUN bundle install
 COPY . .
 ENV DB_URL $DB_URL
 ENV RAILS_ENV "production"
+ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
 RUN bin/rails assets:precompile
 EXPOSE 3000
 CMD ["./bin/rails", "server", "--binding=0.0.0.0"]
