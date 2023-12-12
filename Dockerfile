@@ -32,7 +32,6 @@ RUN bundle install
 # The second dot will copy it to the WORKDIR!
 COPY . .
 ENV DB_URL $DB_URL
-ENV RAILS_ENV "production"
 ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
 RUN bin/rails assets:precompile
 EXPOSE 3000
