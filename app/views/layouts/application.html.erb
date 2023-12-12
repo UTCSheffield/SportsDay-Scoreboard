@@ -16,6 +16,10 @@
 
   <body>
     <h1>OLP Winter Games</h1>
+    <%= link_to "Log in", "/auth/" %>
+    <%= link_to "Log out", "/auth/logout" %>
+    <%= link_to "Set Scores", "/set_scores" %>
+    <br />
     <%= yield %>
   </body>
 </html>

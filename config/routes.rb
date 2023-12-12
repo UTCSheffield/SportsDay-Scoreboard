@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     get "callback" => "auth#callback"
     get "logout" => "auth#logout"
   end
+  scope "admin" do
+    get "/" => "admin#index"
+    get "console" => "admin#console"
+  end
   resources :set_scores, only: [:index, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
