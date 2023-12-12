@@ -36,5 +36,6 @@ ENV DB_URL $DB_URL
 ENV RAILS_ENV $RAILS_ENV
 ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
 RUN bin/rails assets:precompile
+RUN bin/rails db:setup
 EXPOSE 3000
 CMD ["./bin/rails", "server", "--binding=0.0.0.0"]
