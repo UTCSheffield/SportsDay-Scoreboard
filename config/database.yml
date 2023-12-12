@@ -25,7 +25,6 @@ default: &default
 development:
   <<: *default
   database: railway
-  host: db
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -80,4 +79,3 @@ test:
 production:
   <<: *default
   database: railway
-  host: postgres
