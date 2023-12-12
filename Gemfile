@@ -33,6 +33,8 @@ end
 # Auth
 gem "jwt"
 gem "httparty"
+
 gem 'web-console', '~> 4.2', '>= 4.2.1'
+gem 'paper_trail'
 
 gem "dockerfile-rails", ">= 1.5", :group => :development
