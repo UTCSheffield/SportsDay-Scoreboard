@@ -35,6 +35,7 @@ COPY . .
 ENV DB_URL $DB_URL
 ENV RAILS_ENV $RAILS_ENV
 ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
+RUN echo DATABASE_URL=$DB_URL > .env && echo RAILS_ENV=$RAILS_ENV >> .env && echo RAILS_MASTER_KEY=$RAILS_MASTER_KEY >> .env
 RUN bin/rails assets:precompile
 RUN bin/rails db:setup
 EXPOSE 3000
