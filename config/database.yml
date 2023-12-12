@@ -80,5 +80,4 @@ test:
 production:
   <<: *default
   database: railway
-  port: 13331
-  host: roundhouse.proxy.rlwy.net
+  host: postgres
