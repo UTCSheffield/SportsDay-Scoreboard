@@ -3,17 +3,30 @@ module UserRoles
   included do
     def authorize_admin
       puts "Authorizing Admin..."
-      unless user_admin?
+      if user_roles_present?
+        if user_admin?
+          puts "Authorized!"
+        else
+          render "public/403.html", status: 403
+          puts "Not authorized!"
+        end
+      else
         puts "Not authorized!"
-        render_unauthorized
+        redirect_to_login
       end
     end
-
     def authorize_scorer
       puts "Authorizing Scorer..."
-      unless user_scorer?
+      if user_roles_present?
+        if user_scorer?
+          puts "Authorized!"
+        else
+          render "public/403.html", status: 403
+          puts "Not authorized!"
+        end
+      else
         puts "Not authorized!"
-        render_unauthorized
+        redirect_to_login
       end
     end
   end
@@ -32,7 +45,7 @@ module UserRoles
     session[:grant].present? && session[:grant]["user"] != false && session[:grant]["user"]["roles"].present?
   end
 
-  def render_unauthorized
+  def redirect_to_login
     redirect_to "/auth?callback=#{request.fullpath}"
   end
 end
