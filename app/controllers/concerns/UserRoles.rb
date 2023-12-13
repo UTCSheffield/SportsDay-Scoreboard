@@ -7,7 +7,7 @@ module UserRoles
         if user_admin?
           puts "Authorized!"
         else
-          render "public/403.html", status: 403
+          render plain: "Not authorized!", status: 403
           puts "Not authorized!"
         end
       else
@@ -21,7 +21,7 @@ module UserRoles
         if user_scorer?
           puts "Authorized!"
         else
-          render "public/403.html", status: 403
+          render plain: "Not authorized!", status: 403
           puts "Not authorized!"
         end
       else
