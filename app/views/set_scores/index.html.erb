@@ -21,10 +21,10 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td><%= form.text_field :turing, value: event.turing %></td>
-        <td><%= form.text_field :winston, value: event.winston %></td>
-        <td><%= form.text_field :sharman, value: event.sharman %></td>
-        <td><%= form.text_field :ennis, value: event.ennis %></td>
+        <td><%= form.text_field :turing, value: event.turing, id: "#{event.id}-turing" %></td>
+        <td><%= form.text_field :winston, value: event.winston, id: "#{event.id}-winston" %></td>
+        <td><%= form.text_field :sharman, value: event.sharman, id: "#{event.id}-sharman" %></td>
+        <td><%= form.text_field :ennis, value: event.ennis, id: "#{event.id}-ennis" %></td>
         <td><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>

@@ -1,6 +1,7 @@
 class SetScoresController < ApplicationController
   include UserRoles
   before_action :authorize_scorer
+  skip_before_action :verify_authenticity_token if Rails.env.development?
   def index
     if (params[:year].nil? and params[:activity].nil?)
       @events = Event.order("id ASC")
