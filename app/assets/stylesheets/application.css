@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ @font-face {
+    font-family: Frankin-Gothic-Demi;
+    src: font-url(fonts/FRADM.ttf) format("truetype");
+  }
+html {
+    font-family: 'Frankin-Gothic-Demi', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+}

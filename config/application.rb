@@ -26,5 +26,7 @@ module SutcSportsDayScoreboard
     # config.eager_load_paths << Rails.root.join("extras")
     config.web_console.development_only = false
     config.web_console.permissions = '0.0.0.0/0'
+    config.action_view.preload_links_header = false
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
