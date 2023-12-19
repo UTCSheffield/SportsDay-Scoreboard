@@ -15,8 +15,10 @@
   </head>
 
   <body>
-    <%= image_tag "UTC-Sheffield-Olympic-Legacy-Park.svg", alt: "UTC OLP Logo" %>
-    <h1>OLP Winter Games</h1>
+    <div class="header">
+      <%= image_tag "UTC-Sheffield-Olympic-Legacy-Park.svg", alt: "UTC OLP Logo" %>
+      <h1>Winter Games</h1>
+    </div>
     <%= link_to "Log in", "/auth/" %>
     <%= link_to "Log out", "/auth/logout" %>
     <%= link_to "Set Scores", "/set_scores" %>
