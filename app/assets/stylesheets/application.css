@@ -129,3 +129,11 @@ a:visited {
   transition:none;
 }
 /* ee7d00 009bb4 */
+
+
+
+@media only screen and (max-width: 1000px) {
+  .settable th, .settable td{
+    font-size: 3.5vw;
+  }
+}
