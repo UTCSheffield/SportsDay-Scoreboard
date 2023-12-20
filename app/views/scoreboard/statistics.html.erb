@@ -1,0 +1,26 @@
+<div class='settable'>
+<table border=1>
+  <tr>
+    <th>Activity</th>
+    <th>Year</th>
+    <th>Group</th>
+    <th>Turing</th>
+    <th>Winston</th>
+    <th>Sharman</th>
+    <th>Ennis</th>
+  </tr>
+  <% @events.each do |event| %>
+    <%= turbo_stream_from event %>
+
+    <tr>
+        <td><%= event.activity %></td>
+        <td><%= event.year %></td>
+        <td><%= event.gender %></td>
+        <td><%= event.turing %></td>
+        <td><%= event.winston %></td>
+        <td><%= event.sharman %></td>
+        <td><%= event.ennis %></td>
+    </tr>
+  <% end %>
+</table>    
+</div>
