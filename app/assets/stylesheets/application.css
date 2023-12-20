@@ -51,6 +51,11 @@ table, td, th{
   border:0px;
   box-sizing: border-box;
   background-color: #ddd;
+  background: none;
+}
+.setscorebutt {
+  background: fixed;
+  background-color: #ddd;
 }
 .settable *{
   border: 2px solid;
@@ -99,10 +104,10 @@ a:visited {
   background-color: lightgreen;
 }
 .sharman {
-  background-color: lightyellow;
+  background-color: #fdfd80;
 }
 .ennis {
-  background-color: lightcoral;
+  background-color: rgb(249, 164, 164);
 }
 .winston {
   background-color: lightblue;

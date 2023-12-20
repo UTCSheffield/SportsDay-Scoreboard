@@ -28,7 +28,7 @@
         <td class="ennis"><%= form.text_field :ennis, value: event.ennis, id: "#{event.id}-ennis" %></td>
         <td class="sharman"><%= form.text_field :sharman, value: event.sharman, id: "#{event.id}-sharman" %></td>
         <td class="turing"><%= form.text_field :turing, value: event.turing, id: "#{event.id}-turing" %></td>
-        <td><%= form.submit "Set Score" %></td>
+        <td class="setscorebutt"><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>
   <% end %>
