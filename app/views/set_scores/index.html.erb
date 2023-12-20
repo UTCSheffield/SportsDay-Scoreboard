@@ -10,10 +10,10 @@
     <th>Activity</th>
     <th>Year</th>
     <th>Group</th>
-    <th>Turing</th>
-    <th>Winston</th>
-    <th>Sharman</th>
-    <th>Ennis</th>
+    <th class="turing">Turing</th>
+    <th class="winston">Winston</th>
+    <th class="sharman">Sharman</th>
+    <th class="ennis">Ennis</th>
     <th>Change Score</th>
   </tr>
   <% @events.each do |event| %>
@@ -24,10 +24,10 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td><%= form.text_field :turing, value: event.turing, id: "#{event.id}-turing" %></td>
-        <td><%= form.text_field :winston, value: event.winston, id: "#{event.id}-winston" %></td>
-        <td><%= form.text_field :sharman, value: event.sharman, id: "#{event.id}-sharman" %></td>
-        <td><%= form.text_field :ennis, value: event.ennis, id: "#{event.id}-ennis" %></td>
+        <td class="turing"><%= form.text_field :turing, value: event.turing, id: "#{event.id}-turing" %></td>
+        <td class="winston"><%= form.text_field :winston, value: event.winston, id: "#{event.id}-winston" %></td>
+        <td class="sharman"><%= form.text_field :sharman, value: event.sharman, id: "#{event.id}-sharman" %></td>
+        <td class="ennis"><%= form.text_field :ennis, value: event.ennis, id: "#{event.id}-ennis" %></td>
         <td><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>

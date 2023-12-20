@@ -4,10 +4,10 @@
     <th>Activity</th>
     <th>Year</th>
     <th>Group</th>
-    <th>Turing</th>
-    <th>Winston</th>
-    <th>Sharman</th>
-    <th>Ennis</th>
+    <th class="turing">Turing</th>
+    <th class="winston">Winston</th>
+    <th class="sharman">Sharman</th>
+    <th class="ennis">Ennis</th>
   </tr>
   <% @events.each do |event| %>
     <%= turbo_stream_from event %>
@@ -16,10 +16,10 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td><%= event.turing %></td>
-        <td><%= event.winston %></td>
-        <td><%= event.sharman %></td>
-        <td><%= event.ennis %></td>
+        <td class="turing"><%= event.turing %></td>
+        <td class="winston"><%= event.winston %></td>
+        <td class="sharman"><%= event.sharman %></td>
+        <td class="ennis"><%= event.ennis %></td>
     </tr>
   <% end %>
 </table>    
