@@ -9,7 +9,7 @@ class ScoreboardController < ApplicationController
 
         @leading_form = column_with_highest_value.capitalize
     end
-    def statistics
+    def results
         @events = Event.all.order("id ASC")
     end
 end

@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "home#index"
-  get "statistics" => "scoreboard#statistics"
+  get "results" => "scoreboard#results"
   get "scoreboard" => "scoreboard#index"
 end
