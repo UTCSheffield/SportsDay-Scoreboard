@@ -24,9 +24,8 @@
   </tr>
   <% @events.each do |event| %>
     <%= turbo_stream_from event %>
-
     <tr>
-      <%= form_with url: set_score_path(id: event.id), method: :put do |form| %>
+      <%= form_with url: set_score_path(id: event.id), method: :put, remote: true do |form| %>
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
