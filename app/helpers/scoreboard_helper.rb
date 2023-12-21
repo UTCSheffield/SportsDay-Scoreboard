@@ -18,8 +18,9 @@ module ScoreboardHelper
     winston = content_tag(:td, "#{events.sum(:winston)}", class: "winston")
     sharman = content_tag(:td, "#{events.sum(:sharman)}", class: "sharman")
     ennis = content_tag(:td, "#{events.sum(:ennis)}", class: "ennis")
+    blank = content_tag(:td, content_tag(:a, content_tag(:p, " ", class:"linkgon"), href:"http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/#AAaAaaaAAAaAaaAAAaAaaAAAaaaaAAAaaAAaAAAaAaaAaAAAAaAaAAAAAAAaAAAAAAaAAAAAAaAAAaAaAAAaAAAAaaAAAaAAAAAAAaAaAAAAaAaaAAAaAaAAAaaaAaAAaaAaAaAaAAAaAAaaaAAAAaAAAAAAaAAaAaAaAAAAAAAaAAAAAaaaaAAAAaAaaAAaaaAAAAaAaaaaAAAAAAAAAaAAaaAAAAaAAAaaAaaAaAaaaAAAAaAAAaAAaAaaAAAaAAAaAAAaaAAaAaAAAAAaaAAAAaAAaaaAAaaaAAAaAaaaA", class: "linkgon"), class:"linkgon")
     content_tag(:tr,
-      [header, winston, ennis, sharman, turing].join.html_safe
+      [header, winston, ennis, sharman, turing, blank].join.html_safe
     )
   end
 end
