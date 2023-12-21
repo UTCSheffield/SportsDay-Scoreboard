@@ -5,19 +5,20 @@
 <table border=1>
   <tr>
     <th>
-    <a href="/" class="linkgon" style="background:none;">
-    <p class="linkgon"> 
-    </p>
-    </a>
+      <a href="/" class="linkgon" style="background:none;">
+        <p class="linkgon"></p>
+      </a>
     </th>
     <th class="winston">Winston</th>
     <th class="ennis">Ennis</th>
     <th class="sharman">Sharman</th>
     <th class="turing">Turing</th>
+    <th>Total</th>
   </tr>
   <%= render_scoreboard_rows 9 %>
   <%= render_scoreboard_rows 10 %>
   <%= render_scoreboard_rows 11 %>
+  <%= render_column_totals %>
 </table>
 
 <div class='footer'>
