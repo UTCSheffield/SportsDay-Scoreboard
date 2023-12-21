@@ -4,8 +4,9 @@
 <a href="/set_scores?year=9">Year 9</a>
 <a href="/set_scores?year=10">Year 10</a>
 <a href="/set_scores?year=11">Year 11</a>
+<br/>
 <% flash.each do |type, msg| %>
-  <div>
+  <div class="message">
     <%= msg %>
   </div>
 <% end %>

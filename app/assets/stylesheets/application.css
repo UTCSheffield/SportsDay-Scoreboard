@@ -19,7 +19,7 @@
   }
 html {
     font-family: 'Frankin-Gothic-Demi', sans-serif;
-    font-size: 16px;
+    font-size: 1.5vw;
     line-height: 1.5;
     color: #333;
     background-color: #fff;
@@ -129,7 +129,17 @@ a:visited {
   transition:none;
 }
 /* ee7d00 009bb4 */
-
+.message {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #ee7d00;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 2vw;
+}
 
 
 @media only screen and (max-width: 1000px) {
