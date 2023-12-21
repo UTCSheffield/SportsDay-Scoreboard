@@ -16,6 +16,6 @@ class SetScoresController < ApplicationController
   def update
     event = Event.find_by(id: params[:id])
     event.update(sharman: params[:sharman], winston: params[:winston], ennis: params[:ennis], turing: params[:turing])
-    flash.alert = "Updated data for the #{event.year} #{event.gender} #{event.activity} event"
+    #flash.alert = "Updated data for the #{event.year} #{event.gender} #{event.activity} event"
   end
 end
