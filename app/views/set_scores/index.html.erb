@@ -29,10 +29,10 @@
         <td><%= event.activity %></td>
         <td><%= event.year %></td>
         <td><%= event.gender %></td>
-        <td class="winston"><%= form.text_field :winston, value: event.winston, id: "#{event.id}-winston" %></td>
-        <td class="ennis"><%= form.text_field :ennis, value: event.ennis, id: "#{event.id}-ennis" %></td>
-        <td class="sharman"><%= form.text_field :sharman, value: event.sharman, id: "#{event.id}-sharman" %></td>
-        <td class="turing"><%= form.text_field :turing, value: event.turing, id: "#{event.id}-turing" %></td>
+        <td class="winston"><%= render_dropdowns("#{event.id}-winston", "winston", event.winston) %></td>
+        <td class="ennis"><%= render_dropdowns("#{event.id}-ennis", "ennis", event.ennis) %></td>
+        <td class="sharman"><%= render_dropdowns("#{event.id}-sharman", "sharman", event.sharman) %></td>
+        <td class="turing"><%= render_dropdowns("#{event.id}-turing", "turing", event.turing) %></td>
         <td class="setscorebutt"><%= form.submit "Set Score" %></td>
       <% end %>
     </tr>

@@ -1,25 +1,13 @@
 module SetScoresHelper
-    def render_dropdowns(activity, form, year, gender)
-        event = Event.find_by(activity: activity, year: year, gender: gender)
-        amountData = {
-            turing: event.turing,
-            sharman: event.sharman,
-            winston: event.winston,
-            ennis: event.ennis
-        }
-        options = []
-        if (activity == "60m")
-            8.times do |n|
-                option = add_option_tag(n, n, amountData[form])
-                options.push(option)
-            end
-        else
-            4.times do |n|
-                option = add_option_tag(n,n, amountData[form])
-                options.push(option)
-            end
-        end
-    content_tag(:select, options.join.html_safe, name: form)
+    def render_dropdowns(id, form, value)
+        options = [
+            add_option_tag("1", 20, value),
+            add_option_tag("2", 15, value),
+            add_option_tag("3", 10, value),
+            add_option_tag("4", 5, value),
+            add_option_tag("Nothing", 0, value)
+        ]
+    content_tag(:select, options.join.html_safe, name: form, id: id)
     end
 
     private
