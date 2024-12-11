@@ -8,9 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 [9, 10, 11].each do |year|
-    ["200m", "400m", "800m", "Javelin", "Shotput", "High Jump", "Long Jump", "Triple Jump", "60m"].each do |activity|
+    ["60m", "200m", "400m", "800m", "Javelin", "Shot putt", "High Jump", "Long Jump"].each do |activity|
         ["Boys", "Girls"].each do |gender|
             Event.find_or_create_by(activity: activity, year: year, gender: gender, sharman: 0, winston: 0, ennis: 0, turing: 0)
         end
     end
+    Event.find_or_create_by(activity: "4x50 Relay", year: year, gender: "Mixed", sharman: 0, winston: 0, ennis: 0, turing: 0)
 end
