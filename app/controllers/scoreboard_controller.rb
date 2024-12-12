@@ -6,30 +6,37 @@ class ScoreboardController < ApplicationController
   end
 
   def index
-    # Calculate the total scores for each year
-    year_totals = Event.select(:year, 'SUM(turing) AS turing', 'SUM(winston) AS winston', 'SUM(sharman) AS sharman', 'SUM(ennis) AS ennis')
-                       .group(:year)
+    year_totals = Event
+      .select("year, SUM(turing) AS turing, SUM(winston) AS winston, SUM(sharman) AS sharman, SUM(ennis) AS ennis")
+      .group(:year)
 
-    # Calculate the max total score using database-level operations
-    max_total = year_totals.order('turing + winston + sharman + ennis DESC').first
-    max_score = max_total.turing + max_total.winston + max_total.sharman + max_total.ennis
+    # Calculate the leading year groups
+    highest_year_score = year_totals.map { |result| total_score(result) }.max || 0
+    leading_years = year_totals.select { |result| total_score(result) == highest_year_score }
+    @leading_year = highest_year_score.positive? ? leading_years.map(&:year).join(", ") : "N/A"
 
-    # Find all year groups with the max total score
-    leading_years = year_totals.where('turing + winston + sharman + ennis = ?', max_score)
-
-    # If the max score is zero, return "N/A", otherwise return all years with the max score
-    @leading_year = max_score.zero? ? 'N/A' : leading_years.pluck(:year).join(', ')
-
-    # Find the column with the highest individual score
-    columns = [:turing, :winston, :sharman, :ennis]
-    column_with_highest_value = columns.max_by { |column| Event.maximum(column) }
-
-    # Return the leading form (capitalized)
-    @leading_form = column_with_highest_value.to_s.capitalize
+    # Calculate the leading forms
+    form_scores = calculate_form_scores(year_totals)
+    top_form_score = form_scores.values.max || 0
+    @leading_form = top_form_score.positive? ? form_scores.select { |_form, score| score == top_form_score }.keys.join(", ") : "N/A"
   end
 
   def results
-    # Add pagination if necessary for performance
     @events = Event.all.order("id ASC")
+  end
+
+  private
+
+  def total_score(result)
+    result.turing + result.winston + result.sharman + result.ennis
+  end
+
+  def calculate_form_scores(year_totals)
+    {
+      "Turing" => year_totals.sum { |result| result.turing },
+      "Winston" => year_totals.sum { |result| result.winston },
+      "Sharman" => year_totals.sum { |result| result.sharman },
+      "Ennis" => year_totals.sum { |result| result.ennis }
+    }
   end
 end
