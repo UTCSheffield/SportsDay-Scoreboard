@@ -77,7 +77,7 @@ h1 {
   grid-row-gap: 0px;
 }
 h3 {
-  font-size: 2vw;
+  white-space: nowrap;
 }
 .footer {
   display: grid;
