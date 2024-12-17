@@ -7,8 +7,6 @@ export default class extends Controller {
     const footer = this.element;
     const leadingLen = footer.textContent.length;
 
-    console.log('Ran');
-
     if (!footer) {
       console.error("Error: Required elements 'footer' not found.");
       return;
