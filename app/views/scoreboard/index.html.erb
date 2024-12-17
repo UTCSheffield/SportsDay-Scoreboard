@@ -21,7 +21,7 @@
   <%= render_column_totals %>
 </table>
 
-<div class='footer'>
-<h3>Leading Year: Year <%= @leading_year %></h3>
-<h3>Leading Form: <%= @leading_form %></h3>
+<div class="footer" data-controller="scoreboard-resize">
+  <h3 data-scoreboard-resize-target="leading-year"><%= @leading_year %></h3>
+  <h3 data-scoreboard-resize-target="leading-form"><%= @leading_form %></h3>
 </div>
