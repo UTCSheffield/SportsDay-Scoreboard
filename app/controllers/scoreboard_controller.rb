@@ -14,17 +14,17 @@ class ScoreboardController < ApplicationController
     highest_year_score = year_totals.map { |result| total_score(result) }.max || 0
     leading_years = year_totals.select { |result| total_score(result) == highest_year_score }
     @leading_year = highest_year_score.positive? ? 
-    "Leading Year#{leading_years.size > 1 ? 's' : ''}: Year " + 
+    "Lead Year#{leading_years.size > 1 ? 's' : ''}: " + 
     leading_years.map(&:year).join(", ") : 
-    "Leading Year: N/A"  
+    "Lead Year N/A"  
 
     # Calculate the leading forms
     form_scores = calculate_form_scores(year_totals)
     top_form_score = form_scores.values.max || 0
     @leading_form = top_form_score.positive? ? 
-    "Leading Form#{form_scores.select { |_form, score| score == top_form_score }.keys.size > 1 ? 's' : ''}: " + 
+    "Lead Form#{form_scores.select { |_form, score| score == top_form_score }.keys.size > 1 ? 's' : ''}: " + 
     form_scores.select { |_form, score| score == top_form_score }.keys.join(", ") : 
-    "Leading Form: N/A"
+    "Lead Form: N/A"
   
   end
 
