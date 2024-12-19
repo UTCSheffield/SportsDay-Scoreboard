@@ -16,7 +16,7 @@ class ScoreboardController < ApplicationController
     @leading_year = highest_year_score.positive? ? 
     "Lead Year#{leading_years.size > 1 ? 's' : ''}: " + 
     leading_years.map(&:year).join(", ") : 
-    "Lead Year N/A"  
+    "Lead Year: N/A"  
 
     # Calculate the leading forms
     form_scores = calculate_form_scores(year_totals)
