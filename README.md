@@ -1,5 +1,10 @@
 #  Sports Day Scoreboard
 
+
+WARNING: THIS REPOSITORY IS DEPRECATED, REFER TO [https://github.com/UTCSheffield/Sportsday-Scoreboardv2](https://github.com/UTCSheffield/Sportsday-Scoreboardv2) INSTEAD
+
+
+
 ## Environment
 | Package | Version |
 | --- | --- |
